@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>T&C</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="center-box">
+    <h1 style="text-align: center">欢迎您，陈成豪先生！</h1><br>
+    <p><b>请阅读并同意以下条款与条件以继续：</b></p>
+    <p>1. 对于潘英姿女士，必须遵守三从四德: <br>
+        &emsp;&emsp;- 三从：服从，听从，顺从 <br>
+        &emsp;&emsp;- 四德：忍得，受的，打得，骂得 <br>
+    </p>
+    <p>2. 不准偷吃潘英姿女士的零食，冰淇淋，或任何食物饮料。</p>
+    <p>3. 这份礼物必须珍惜以及照顾。</p>
+    <p>4. 若喜欢此礼物，要说‘喜欢’；若不喜欢此礼物，也得说‘喜欢’。</p>
+    <p>5. 答应从此之后对潘英姿女士更好一点。</p>
+    <br>
+    <label>
+        <input type="checkbox" id="agreeCheckbox" onchange="updateButton()"> 我已阅读并同意上述条款与条件。<br><br>
+    </label>
+    <br>
+    <button onclick="continueAction()" disabled>继续</button>
+  </div>
+  
+  <script>
+    function updateButton() {
+        const checkbox = document.getElementById('agreeCheckbox');
+        const button = document.querySelector('button[onclick="continueAction()"]');
+
+        if (checkbox.checked) {
+        button.disabled = false;
+        } else {
+        button.disabled = true;
+        }
+    }
+
+    function continueAction() {
+        const checkbox = document.getElementById('agreeCheckbox');
+
+        if (checkbox.checked) {
+            window.location.href = 'video.html';
+        }
+    }
+  </script>
+</body>
+</html>

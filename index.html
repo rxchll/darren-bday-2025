@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Darren's Bday 2025</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>欢迎来到陈成豪先生的生日专属网站！</h1>
+  <p style="font-size: 22px">请回答以下问题以验证您的身份：<p></p>
+  <br>
+  <p>1. 您是否姓‘陈’？</p>
+  <button onclick="selectAnswer(this, 'surname', 'Y')">是</button>
+  <button onclick="selectAnswer(this, 'surname', 'N')">否</button>
+
+  <p>2. 您是否名‘成豪’？</p>
+  <button onclick="selectAnswer(this, 'name', 'Y')">是</button>
+  <button onclick="selectAnswer(this, 'name', 'N')">否</button>
+
+  <p>3. 您是否有个 漂亮 可爱 聪明 善良 的女朋友？</p>
+  <button onclick="selectAnswer(this, 'gf', 'Y')">是</button>
+  <button onclick="selectAnswer(this, 'gf', 'N')">否</button>
+  <br><br>
+  <button onclick="submitAnswers()">提交答案</button>
+
+  <script>
+    const answer = {
+      surname: null,
+      name: null,
+      gf: null
+    };
+
+    const selectedButtons = {
+      surname: null,
+      name: null,
+      gf: null
+    };
+
+    function selectAnswer(button, field, value) {
+      // Deselect if already selected
+      if (selectedButtons[field] === button) {
+        button.classList.remove('selected');
+        selectedButtons[field] = null;
+        answer[field] = null;
+      } else {
+        // Remove previous selection for this question
+        if (selectedButtons[field]) {
+          selectedButtons[field].classList.remove('selected');
+        }
+        // Select new button
+        button.classList.add('selected');
+        selectedButtons[field] = button;
+        answer[field] = value;
+      }
+    }
+
+    function submitAnswers() {
+      if (answer.surname === 'Y' && answer.name === 'Y' && answer.gf === 'Y') {
+        window.location.href = 'TnC.html';
+      } else {
+        window.location.href = 'error.html';
+      } 
+    }
+  </script>
+</body>
+</html>
